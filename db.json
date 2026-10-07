@@ -1,0 +1,35 @@
+{
+  "todos": [
+    {
+      "id": "1",
+      "text": "Préparer ma liste pour la semaine",
+      "completed": false
+    },
+    {
+      "id": "2",
+      "text": "Répondre au message de Camille",
+      "completed": false
+    },
+    {
+      "text": "finir le cour",
+      "completed": true,
+      "id": "pHCwQ3eqgtU"
+    },
+    {
+      "text": "danser",
+      "completed": true,
+      "id": "zdbFAdZ54d0"
+    },
+    {
+      "text": "cc",
+      "completed": false,
+      "id": "LBPyN3wQWS4"
+    },
+    {
+      "text": "kjjj",
+      "completed": false,
+      "id": "cAmhBT8E4rQ"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

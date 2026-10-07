@@ -1,0 +1,25 @@
+{
+  "name": "l5_charlotte",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "json-server db.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ImpactAcademie/l5_charlotte.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ImpactAcademie/l5_charlotte/issues"
+  },
+  "homepage": "https://github.com/ImpactAcademie/l5_charlotte#readme",
+  "dependencies": {
+    "json-server": "^1.0.0-beta.15"
+  }
+}

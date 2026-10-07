@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f3f5f0">
+    <title>BIG.TODO — Aujourd’hui</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <main class="workspace">
+      <header class="topbar">
+        <a class="wordmark" href="#" aria-label="BIG.TODO, accueil">
+          <span class="wordmark-mark" aria-hidden="true"><span></span></span>
+          <span>BIG<span class="wordmark-dot">.</span>TODO</span>
+        </a>
+        <svg class="nyan-art" viewBox="0 0 148 72" role="img" aria-labelledby="cat-art-title">
+          <title id="cat-art-title">Illustration originale d’un chat pixelisé avec une traînée arc-en-ciel</title>
+          <defs>
+            <symbol id="pixel-cat-art" viewBox="0 0 148 72">
+              <path d="M5 34h78" stroke="#df6793" stroke-width="6" />
+              <path d="M5 41h78" stroke="#a76bc2" stroke-width="6" />
+              <path d="M5 48h78" stroke="#7151a3" stroke-width="6" />
+              <path d="M5 55h78" stroke="#5888cf" stroke-width="6" />
+              <path d="M5 62h78" stroke="#4c77b8" stroke-width="6" />
+              <path d="M21 16v5m-2.5-2.5h5M57 9v4m-2-2h4" fill="none" stroke="#df6793" stroke-linecap="square" stroke-width="2" />
+              <rect x="94" y="15" width="10" height="12" fill="#7151a3" />
+              <rect x="116" y="15" width="10" height="12" fill="#7151a3" />
+              <rect x="89" y="23" width="42" height="28" fill="#7151a3" />
+              <rect x="99" y="47" width="36" height="13" fill="#7151a3" />
+              <rect x="105" y="51" width="9" height="7" fill="#df6793" />
+              <rect x="88" y="56" width="10" height="8" fill="#7151a3" />
+              <rect x="124" y="57" width="10" height="7" fill="#7151a3" />
+              <rect x="132" y="39" width="7" height="8" fill="#7151a3" />
+              <rect x="136" y="32" width="7" height="8" fill="#7151a3" />
+              <rect x="99" y="33" width="4" height="5" fill="#ffffff" />
+              <rect x="117" y="33" width="4" height="5" fill="#ffffff" />
+              <rect x="109" y="40" width="4" height="3" fill="#4c77b8" />
+            </symbol>
+          </defs>
+          <use href="#pixel-cat-art" width="148" height="72" />
+        </svg>
+        <p class="topbar-note">UN CHAT À LA FOIS <span aria-hidden="true">✳</span></p>
+        <div class="weather-widget" role="status" aria-live="polite" aria-label="Météo actuelle à Liège">
+          <span class="weather-icon" id="weather-icon" aria-hidden="true">◌</span>
+          <span class="weather-copy">
+            <span class="weather-place">Liège</span>
+            <span class="weather-summary" id="weather-summary">Chargement…</span>
+            <a class="weather-source" href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a>
+          </span>
+          <span class="weather-temperature" id="weather-temperature">--°</span>
+        </div>
+      </header>
+
+      <section class="dashboard" aria-labelledby="page-title">
+        <div class="intro">
+          <div class="intro-copy">
+            <p class="eyebrow" id="today-date"></p>
+            <h1 id="page-title">On s’occupe<br><span>de quoi ?</span></h1>
+            <p class="intro-note">by Chacha</p>
+          </div>
+          <div class="progress-stamp" aria-label="Progression des tâches">
+            <span class="stamp-sun" aria-hidden="true">✳</span>
+            <span class="progress-number" id="progress-number">0%</span>
+            <span class="progress-caption">accompli</span>
+          </div>
+        </div>
+
+        <section class="task-panel" aria-label="Ma liste de tâches">
+          <svg class="cat-wallpaper" aria-hidden="true" focusable="false">
+            <defs>
+              <pattern id="pixel-cat-pattern" width="236" height="136" patternUnits="userSpaceOnUse">
+                <use href="#pixel-cat-art" x="12" y="12" width="112" height="55" />
+                <use href="#pixel-cat-art" x="130" y="77" width="90" height="44" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#pixel-cat-pattern)" />
+          </svg>
+          <form class="task-form" id="task-form">
+            <label class="sr-only" for="task-input">Nouvelle tâche</label>
+            <span class="input-plus" aria-hidden="true">+</span>
+            <input id="task-input" name="task" type="text" maxlength="120" placeholder="Tâche à faire ?" autocomplete="off" required>
+            <button class="add-button" type="submit"><span>Ajouter</span><span aria-hidden="true">↗</span></button>
+          </form>
+
+          <div class="list-toolbar">
+            <div class="list-heading">
+              <h2>Ta liste</h2>
+              <span class="remaining-count" id="remaining-count">0</span>
+            </div>
+            <div class="filters" role="group" aria-label="Filtrer les tâches">
+              <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">Tout</button>
+              <button class="filter-button" type="button" data-filter="active" aria-pressed="false">À faire</button>
+              <button class="filter-button" type="button" data-filter="completed" aria-pressed="false">Terminées</button>
+            </div>
+          </div>
+
+          <ul class="task-list" id="task-list" aria-live="polite"></ul>
+          <div class="empty-state" id="empty-state" hidden>
+            <span class="empty-spark" aria-hidden="true">✳</span>
+            <p id="empty-message">Rien ici pour le moment.</p>
+          </div>
+
+          <footer class="list-footer">
+            <p id="footer-message">Chaque tâche cochée, c’est ça de fait.</p>
+            <button class="clear-button" id="clear-completed" type="button" hidden>Effacer les terminées <span aria-hidden="true">×</span></button>
+          </footer>
+        </section>
+      </section>
+
+      <footer class="page-footer"><span>FAIS DE LA PLACE POUR L’ESSENTIEL</span><span class="footer-line" aria-hidden="true"></span><span>01 / 01</span></footer>
+    </main>
+  </body>
+</html>
